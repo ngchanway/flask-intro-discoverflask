@@ -2,6 +2,7 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash#, g
 from functools import wraps
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import exc
 # import sqlite3
 
 # create the application object
@@ -32,7 +33,7 @@ def login_required(f):
 @login_required
 def home():
     # return 'Hello, World!' # return a string
-    # posts = []
+    posts = []
     # try:
     #     # g.db = connect_db()
     #     cur = g.db.execute('select * from posts')
@@ -40,7 +41,10 @@ def home():
     #     g.db.close()
     # except sqlite3.OperationalError:
     #     flash('You have no database!')
-    posts = db.session.query(BlogPost).all()
+    try:
+        posts = db.session.query(BlogPost).all()
+    except exc.OperationalError:
+        flash('You have no database!')
     return render_template('index.html', posts=posts) # render a template
 
 @app.route('/welcome')
