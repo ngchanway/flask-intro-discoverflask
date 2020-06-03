@@ -1,0 +1,6 @@
+env
+*.pyc
+*.db
+
+run.py
+templates/_*

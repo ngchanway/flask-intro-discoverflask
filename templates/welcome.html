@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}{{super()}}{% endblock %}
+{% block heading %}{{super()}}{% endblock %}
+{% block content %}
+  <p>Click <a href="/">here</a> to go home.</p>
+  {% for message in get_flashed_messages() %}
+    {{ message }}
+  {% endfor %}
+{% endblock %}
