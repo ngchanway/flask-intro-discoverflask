@@ -13,7 +13,7 @@ app = Flask(__name__)
 # # app.database = 'posts.db'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
 app.config.from_object(os.environ['APP_SETTINGS'])
-print(os.environ['APP_SETTINGS'])
+# print(os.environ['APP_SETTINGS'])
 
 # create the sqlalchemy object
 db = SQLAlchemy(app)
