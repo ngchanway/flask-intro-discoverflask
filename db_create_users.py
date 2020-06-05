@@ -1,5 +1,5 @@
 from project import db
-from models import User
+from project.models import User
 
 # insert data
 # db.session.add(User('michael', 'michael@realpython.com', "i'll-never-tell"))
