@@ -1,9 +1,5 @@
 from flask import flash, redirect, render_template, request, session, url_for, Blueprint
-from app import app
-from flask_bcrypt import Bcrypt
 from functools import wraps
-
-bcrypt = Bcrypt(app)
 
 # config
 users_blueprint = Blueprint(
@@ -23,7 +19,7 @@ def login_required(test):
 
 # routes
 # route for handling the logic page logic
-@users_blueprint.route('/login', methods=['POST', 'GET'])
+@users_blueprint.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
     if request.method == 'POST':
@@ -32,7 +28,7 @@ def login():
         else:
             session['logged_in'] = True
             flash('You were logged in.')
-            return redirect(url_for('home'))
+            return redirect(url_for('home.home'))
     return render_template('login.html', error=error)
 
 @users_blueprint.route('/logout')
@@ -40,4 +36,4 @@ def login():
 def logout():
     session.pop('logged_in', None)
     flash('You were logged out.')
-    return redirect(url_for('welcome'))
+    return redirect(url_for('home.welcome'))
