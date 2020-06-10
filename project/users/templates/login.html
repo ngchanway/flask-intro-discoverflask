@@ -5,19 +5,34 @@
   <h1>Please login</h1>
 {% endblock %}
 {% block content %}
-  <form action="" method="post">
-    <input type="text" placeholder="Username" name="username" value="{{
-      request.form.username
-    }}">
-    <input type="password" placeholder="Password" name="password" value="{{
-      request.form.password
-    }}">
-    <input class="btn btn-default" type="submit" value="Login">
+  <form class="form-signin" role="form" action="" method="post">
+    {{form.csrf_token}}
+    <p>
+      {{form.username(placeholder='username')}}
+      <span class="error">
+        {% if form.username.error %}
+          {% for error in form.username.error %}
+            {{error}}
+          {% endfor %}
+        {% endif %}
+      </span>
+    </p>
+    <p>
+      {{form.password(placeholder='password')}}
+      <span class="error">
+        {% if form.password.error %}
+          {% for error in form.password.error %}
+            {{error}}
+          {% endfor %}
+        {% endif %}
+      </span>
+    </p>
+    <button type="submit" class="btn btn-sm btn-success">Sign in</button>
   </form>
   {% if error %}
-    <p class="error"><strong>Error:</strong> {{ error }}</p>
+    <p class="error"><strong>Error:</strong> {{error}}</p>
   {% endif %}
   {% for message in get_flashed_messages() %}
-    {{ message }}
+    {{message}}
   {% endfor %}
 {% endblock %}

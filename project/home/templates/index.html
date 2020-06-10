@@ -4,6 +4,37 @@
 {% block content %}
   <p>Click <a href="/logout">here</a> to logout.</p>
   <br>
+
+  <!-- post form -->
+  <h3>Add a post!</h3>
+  <br>
+  <form class="form-message" role="form" action="/" method="post">
+    {{form.csrf_token}}
+    <p>
+      {{form.title(placeholder='title')}}
+      <span class="error">
+        {% if form.title.errors %}
+          {% for error in errors %}
+            {{error}}
+          {% endfor %}
+        {% endif %}
+      </span>
+    </p>
+    <p>
+      {{form.description(placeholder='description')}}
+      <span class="error">
+        {% if form.description.errors %}
+          {% for error in errors %}
+            {{error}}
+          {% endfor %}
+        {% endif %}
+      </span>
+    </p>
+    <button type="submit" class="btn btn-sm btn-success">Post</button>
+  </form>
+  <br>
+
+  <!-- All posts -->
   <h3>Posts:</h3>
   {% for post in posts %}
     <strong>Title:</strong> {{post.title}} <br>
