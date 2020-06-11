@@ -10,7 +10,7 @@
       {{form.username(placeholder='username')}}
       <span class="error">
         {% if form.username.errors %}
-          {% for error in errors %}
+          {% for error in form.username.errors %}
             {{error}}
           {% endfor %}
         {% endif %}
@@ -20,7 +20,7 @@
       {{form.email(placeholder='email')}}
       <span class="error">
         {% if form.email.errors %}
-          {% for error in errors %}
+          {% for error in form.email.errors %}
             {{error}}
           {% endfor %}
         {% endif %}
@@ -30,7 +30,7 @@
       {{form.password(placeholder='password')}}
       <span class="error">
         {% if form.password.errors %}
-          {% for error in errors %}
+          {% for error in form.password.errors %}
             {{error}}
           {% endfor %}
         {% endif %}
@@ -40,7 +40,7 @@
       {{form.confirm(placeholder='confirm')}}
       <span class="error">
         {% if form.confirm.errors %}
-          {% for error in errors %}
+          {% for error in form.confirm.errors %}
             {{error}}
           {% endfor %}
         {% endif %}

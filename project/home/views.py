@@ -1,15 +1,15 @@
-from project import db
-from project.models import BlogPost
-from project.home.forms import MessageForm
-from flask import flash, redirect, url_for, render_template, Blueprint, request
-from flask_login import login_required, current_user
+from project import db # pragma: no cover
+from project.models import BlogPost # pragma: no cover
+from project.home.forms import MessageForm # pragma: no cover
+from flask import flash, redirect, url_for, render_template, Blueprint, request # pragma: no cover
+from flask_login import login_required, current_user # pragma: no cover
 # from functools import wraps
-from sqlalchemy import exc
+from sqlalchemy import exc # pragma: no cover
 
 # config
 home_blueprint = Blueprint(
     'home', __name__, template_folder='templates'
-)
+) # pragma: no cover
 
 # def login_required(test):
 #     @wraps(test)
