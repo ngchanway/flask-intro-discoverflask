@@ -2,9 +2,11 @@
 {% block title %}{{super()}}{% endblock %}
 {% block heading %}{{super()}}{% endblock %}
 {% block content %}
-  <p>Click <a href="/logout">here</a> to logout.</p>
+  <p>Click <a href="/logout">here</a> to sign out.</p>
+  {% for message in get_flashed_messages() %}
+    {{ message }}<br>
+  {% endfor %}
   <br>
-
   <!-- post form -->
   <h3>Add a post!</h3>
   <br>
@@ -33,7 +35,6 @@
     <button type="submit" class="btn btn-sm btn-success">Post</button>
   </form>
   <br>
-
   <!-- All posts -->
   <h3>Posts:</h3>
   {% for post in posts %}
@@ -41,8 +42,5 @@
     <strong>Post:</strong> {{post.description}} <br>
     <strong>Author:</strong> {{post.author.name}} <br>
     <br>
-  {% endfor %}
-  {% for message in get_flashed_messages() %}
-    {{ message }}
   {% endfor %}
 {% endblock %}

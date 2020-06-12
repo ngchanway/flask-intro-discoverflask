@@ -2,9 +2,13 @@
 {% block page %} - login page{% endblock %}
 {% block title %}{{super()}}{% endblock %}
 {% block heading %}
-  <h1>Please login</h1>
+  <h1>Please sign in</h1>
 {% endblock %}
 {% block content %}
+  {% for message in get_flashed_messages() %}
+    {{message}}
+  {% endfor %}
+  <br><br>
   <form class="form-signin" role="form" action="" method="post">
     {{form.csrf_token}}
     <p>
@@ -32,7 +36,6 @@
   {% if error %}
     <p class="error"><strong>Error:</strong> {{error}}</p>
   {% endif %}
-  {% for message in get_flashed_messages() %}
-    {{message}}
-  {% endfor %}
+  <br>
+  <p>Click <a href="/register">here</a> to sign up.</p>
 {% endblock %}

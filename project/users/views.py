@@ -22,7 +22,7 @@ def login():
                 user.password, request.form['password']
             ):
                 login_user(user)
-                flash('You were logged in. Go crazy.')
+                flash('You were signed in. Go crazy.')
                 return redirect(url_for('home.home'))
             else:
                 error = 'Invalid Credentials. Please try again.'
@@ -32,7 +32,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    flash('You were logged out.')
+    flash('You were signed out.')
     return redirect(url_for('home.welcome'))
 
 @users_blueprint.route('/register', methods=['GET', 'POST'])
