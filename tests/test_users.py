@@ -53,7 +53,7 @@ class UserViewsTests(BaseTestCase):
     # Ensure that the login page loads correctly
     def test_login_page_loads(self):
         response = self.client.get('/login')
-        self.assertTrue(b'Please login' in response.data)
+        self.assertTrue(b'Please sign in' in response.data)
 
     # Ensure login behaves correctly given the correct credentials
     def test_correct_login(self):
@@ -63,7 +63,7 @@ class UserViewsTests(BaseTestCase):
                 data={'username':'admin', 'password':'admin'},
                 follow_redirects=True
             )
-            self.assertIn(b'You were logged in', response.data)
+            self.assertIn(b'You were signed in', response.data)
             self.assertTrue(current_user.name == 'admin')
             self.assertTrue(current_user.is_active)
 
@@ -74,7 +74,7 @@ class UserViewsTests(BaseTestCase):
             data={'username':'username', 'password':'password'},
             follow_redirects=True
         )
-        self.assertIn(b'Invalid Credentials.', response.data)
+        self.assertIn(b'Invalid Credentials', response.data)
 
     # Ensure logout behaves correctly
     def test_logout(self):
@@ -85,13 +85,13 @@ class UserViewsTests(BaseTestCase):
                 follow_redirects=True
             )
             response = self.client.get('/logout', follow_redirects=True)
-            self.assertIn(b'You were logged out', response.data)
+            self.assertIn(b'You were signed out', response.data)
             self.assertFalse(current_user.is_active)
 
     # Ensure that logout page requires user login
     def test_logout_route_requires_login(self):
         response = self.client.get('/logout', follow_redirects=True)
         self.assertIn(b'Please log in to access this page.', response.data)
-        
+
 if __name__ == '__main__':
     unittest.main()
