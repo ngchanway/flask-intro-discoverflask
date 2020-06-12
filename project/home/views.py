@@ -3,23 +3,12 @@ from project.models import BlogPost # pragma: no cover
 from project.home.forms import MessageForm # pragma: no cover
 from flask import flash, redirect, url_for, render_template, Blueprint, request # pragma: no cover
 from flask_login import login_required, current_user # pragma: no cover
-# from functools import wraps
 from sqlalchemy import exc # pragma: no cover
 
 # config
 home_blueprint = Blueprint(
     'home', __name__, template_folder='templates'
 ) # pragma: no cover
-
-# def login_required(test):
-#     @wraps(test)
-#     def wrap(*args, **kwargs):
-#         if 'logged_in' in session:
-#             return test(*args, **kwargs)
-#         else:
-#             flash('You need to login first.')
-#             return redirect(url_for('users.login'))
-#     return wrap
 
 # routes
 # use decorators to link the function to a url

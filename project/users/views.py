@@ -1,5 +1,4 @@
 from flask import flash, redirect, render_template, request, session, url_for, Blueprint # pragma: no cover
-# from functools import wraps
 from flask_login import login_user, login_required, logout_user # pragma: no cover
 from project.users.forms import LoginForm, RegistrationForm # pragma: no cover
 from project.models import User, bcrypt # pragma: no cover
@@ -9,17 +8,6 @@ from project import db # pragma: no cover
 users_blueprint = Blueprint(
     'users', __name__, template_folder='templates'
 ) # pragma: no cover
-
-# # helper functions
-# def login_required(test):
-#     @wraps(test)
-#     def wrap(*args, **kwargs):
-#         if 'logged_in' in session:
-#             return test(*args, **kwargs)
-#         else:
-#             flash('You need to login first.')
-#             return redirect(url_for('users.login'))
-#     return wrap
 
 # routes
 # route for handling the logic page logic
@@ -33,7 +21,6 @@ def login():
             if user is not None and bcrypt.check_password_hash(
                 user.password, request.form['password']
             ):
-                # session['logged_in'] = True
                 login_user(user)
                 flash('You were logged in. Go crazy.')
                 return redirect(url_for('home.home'))
