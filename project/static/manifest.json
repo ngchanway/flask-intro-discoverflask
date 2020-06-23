@@ -1,0 +1,21 @@
+{
+  "name": "Flask Intro - Discover Flask",
+  "short_name": "Flask Intro",
+  "theme_color": "#008080",
+  "background_color": "#e8ffff",
+  "icons": [
+    {
+      "scr": "/static/images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "scr": "/static/images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any"
+}
