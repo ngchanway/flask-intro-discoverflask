@@ -16,7 +16,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
-    <link rel="manifest" href="{{url_for('static', filename='manifest.json')}}">
+    <link rel="manifest" href="{{url_for('static', filename='site.webmanifest')}}">
   </head>
   <body>
     <div class="container">
@@ -25,6 +25,12 @@
       {% endblock %}
       <br>
       {% block content %}{% endblock %}
+      <br>
+      <button id="installButton" class="btn btn-success" hidden>Install</button>
+      <button id="askLocation" class="btn btn-success">Request location permission</button>
+      <button id="pushButton" class="btn btn-success">Enable Push Notifications</button>
     </div>
+    <script src="{{url_for('static', filename='js/app.js')}}"></script>
+    <script src="{{url_for('static', filename='js/install.js')}}"></script>
   </body>
 </html>
