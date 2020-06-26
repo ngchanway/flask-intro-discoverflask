@@ -2,7 +2,7 @@
 
 const CACHE_NAME = 'static-cache';
 const FILES_TO_CACHE = [
-  '/static/offline.html',
+  '/project/static/offline.html',
 ];
 
 // Installation
