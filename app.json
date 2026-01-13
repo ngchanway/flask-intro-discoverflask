@@ -1,0 +1,12 @@
+{
+  "name": "Flask Intro",
+  "description": "Discover Flask",
+  "keywords": ["Flask"],
+  "website": "https://flask-intro-discoverflask.herokuapp.com",
+  "repository": "https://github.com/ngchanway/flask-intro-discoverflask.git",
+  "logo": "",
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "python db_create_users.py"
+  }
+}
