@@ -6,3 +6,4 @@ coverage
 _run.py
 project/templates/_*
 sql.py
+*.pptx

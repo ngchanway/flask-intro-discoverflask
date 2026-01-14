@@ -11,3 +11,8 @@ python manage.py db upgrade
 python manage.py db downgrade
 python manage.py db --help
 ```
+
+### Make [PWA](https://blog.heroku.com/how-to-make-progressive-web-app)
+```bash
+ln -s project/home/templates/index.html project/static/offline.html
+```
