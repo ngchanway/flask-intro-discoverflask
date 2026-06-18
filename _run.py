@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import datetime
-app = Flask(__name__)
+from project import app
+# app = Flask(__name__)
 
 @app.template_filter()
 def datetimefilter(value, format='%Y/%m/%d %H:%M'):
